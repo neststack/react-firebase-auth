@@ -1,38 +1,123 @@
-.App {
+:root {
+  --background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  --button: #0650a8;
+  --hover: #0482c9;
+}
+
+.container {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerBox {
+  min-width: 480px;
+  height: fit-content;
+  width: fit-content;
+  background-color: #fff;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer .error {
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: rgb(142, 39, 39);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.footer button,
+.footer .link {
+  outline: none;
+  border: none;
+  text-decoration: none;
+  background-color: var(--button);
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px 16px;
+  width: 100%;
+  transition: 100ms;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.footer button:disabled {
+  background-color: gray !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.footer button:hover,
+.footer .link:hover {
+  background-color: var(--hover);
 }
 
-.App-link {
-  color: #61dafb;
+.footer p {
+  font-weight: 700;
+  color: #000;
 }
 
-@keyframes App-logo-spin {
+.footer p span a {
+  font-weight: bold;
+  color: var(--button);
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.loadingSpinner {
+  margin: 0 20px 0 20px;
+  width: 2rem;
+  height: 2rem;
+  color: var(--button);
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 500ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 500ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 500ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
   from {
-    transform: rotate(0deg);
+      transform:rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+      transform:rotate(360deg);
   }
 }
